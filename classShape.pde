@@ -2,7 +2,6 @@ float fct(float x){
   return noise(x);
 }
 
-
 class polygon {
 
   ArrayList<pts> points;

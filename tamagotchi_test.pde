@@ -3,9 +3,9 @@ float noise=0;
 float speed= .015;
 float intSpeed = 0.5;
 float noiseScale=0.02;
-int side= (int)random(600,800); //gérer le nombre de edge/pics
-float rayon=200; //taille de stain
-float rayonProtected = 75; //si on veut une forme "plus ronde" il faut changer cette valeur vers le haut
+int side= (int)random(30,40); //gérer le nombre de edge/pics
+float rayon=150; //taille de stain
+float rayonProtected = 30; //si on veut une forme "plus ronde" il faut changer cette valeur vers le haut
 
 
 boolean random=true;
@@ -39,6 +39,13 @@ void setup() {
 }
 
 void draw() { 
+
+  int side= (int)random(300,400);
+
+
+
+
+
   println(time);
   println(side);
   time++;
