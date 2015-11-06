@@ -1,11 +1,11 @@
-float bezier;
+
 float noise=0;
 float speed= .015;
 float intSpeed = 0.5;
 float noiseScale=0.02;
-int side= (int)random(30,40); //gérer le nombre de edge/pics
-float rayon=150; //taille de stain
-float rayonProtected = 30; //si on veut une forme "plus ronde" il faut changer cette valeur vers le haut
+// int side= (int)random(10,20); //gérer le nombre de edge/pics
+float rayon=200; //taille de stain
+float rayonProtected = 40; //si on veut une forme "plus ronde" il faut changer cette valeur vers le haut
 
 
 boolean random=true;
@@ -14,6 +14,7 @@ boolean mvt=true;
 boolean save=false;//attention va enregistrer une sequence d'image si save = true en .tif
 float time=0;
 
+boolean timeToRandomNow = false;
 
 //New valeurs tamago
 int temperature;
@@ -29,25 +30,20 @@ float blue;
 ArrayList<polygon> polygons;
 
 void setup() {
-  bezier = rayon * 2 / side;
   size(500, 500);
   frameRate(29);
   smooth();
 
   polygons = new ArrayList<polygon>();
-  polygons.add(new polygon());
+  polygons.add(new polygon( (int)random(10,20) ));
 }
+
 
 void draw() { 
 
-  int side= (int)random(300,400);
-
-
-
-
 
   println(time);
-  println(side);
+  println(polygons.get(0).side);
   time++;
   background(15,15,15);
 
@@ -102,4 +98,16 @@ rbouche = random(15,17);
   if(save){
     saveFrame(); 
   }
+if( timeToRandomNow ) {
+  polygons.get(0).update((int)random(50,100));
+  timeToRandomNow = false;
+}
+
+}
+
+
+void keyPressed() {
+ if (key == 'r' || key == 'R') {
+      timeToRandomNow = true;
+    }
 }

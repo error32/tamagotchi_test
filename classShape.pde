@@ -3,10 +3,15 @@ float fct(float x){
 }
 
 class polygon {
+  int side;
+  float bezier;
 
   ArrayList<pts> points;
 
-  polygon() {
+  polygon( int s ) {
+    side = s;
+    bezier = rayon * 2 / side;
+
     points = new ArrayList<pts>(); 
 
     for (float i=0; i < side; i++) {
@@ -132,5 +137,15 @@ class polygon {
       r=_r;
       a=_a;
     }
+  }
+  void update( int s ){
+    side = s;
+    points = new ArrayList<pts>(); 
+
+   for (float i=0; i < side; i++) {
+     float angle = i*2*PI/side;
+      points.add(new pts(rayon, angle));
+    }
+ 
   }
 }
