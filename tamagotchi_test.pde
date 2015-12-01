@@ -45,7 +45,8 @@ void draw() {
   println(time);
   println(polygons.get(0).side);
   time++;
-  background(15,15,15);
+  fill( 15, 15, 15, 128);
+  rect( 0, 0, width, height);
 
   translate(width/2, height/2);  
   if(mvt){
